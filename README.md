@@ -1,6 +1,6 @@
 Snake-Charmer
 =============
-Snake-Charmer represents a project from EMC CODE to build simple ways to test object services through Docker containers that serve as clients.
+Snake-Charmer represents a project from EMC CODE to build simple ways to test object services through Docker containers that serve as clients.  The project should cover S3, Atmos, and Swift interfaces in a similar manner.
 
 ## Docker-s3proxycmd
 A standard tool that is used to work with S3 APIs is ```s3cmd```.  There are already containers built that expose the base functionality.  However, in some cases you may need to configure special parameters that cannot be read from environment variables directly or through run-time specifications.
