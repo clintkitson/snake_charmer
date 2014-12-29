@@ -1,4 +1,4 @@
-Docker-azurecli
+Docker-swift-cli
 =============
 ```Docker-swift-cli``` is meant to allow the usage interactively of a ```Swift``` based object store by specifying as environment variables the ```ST_USER```, ```ST_KEY```, and ```ST_AUTH``` as the authentication URL.  The container is a minimal Docker image built from the ```scratch``` container and a statically linked binary (written in Golang <a href="https://github.com/fanatic/swift-cli">here</a>).
 
