@@ -35,3 +35,9 @@ Create a blank random file at 1MB and send it to the S3 API.
 
 The following command will create the file ```head -c 1M </dev/urandom >test.img```.  In order to copy the file you run this command, which maps the local directory and issues the copy command from the mounted directory
 ```docker run -e "access_key=wuser1@sanity.local" -e "secret_key=+zjItiWiOVTrx00AiDRJOOvpFDQ+Hnwsn7aAJzsq" -e proxy_host=127.0.0.1 -e proxy_port=10101 -ti --net container:769 -v $(pwd):/host emccode/s3proxycmd put /host/test.img s3://newbucket```.
+
+### Interact with the container
+All previous directions created a new container for every command. This process can create 'container sprawl'. To get to the console of the container, you must specify the ```--entrypoint``` flag.
+```docker run -e 'access_key=wuser1@sanity.local' -e 'secret_key=+zjItiWiOVTrx00AiDRJOOvpFDQ+Hnwsn7aAJzsq' -e proxy_host=127.0.0.1 -e proxy_port=10101 -ti --entrypoint=/bin/bash  emccode/s3proxycmd```
+
+Now the docker container is a long-running process. Running s3cmd must be prefaced with ```./bin/run_s3_proxy_cmd.sh```. For instance, listing the buckets is now done as ```./bin/run_s3_proxy_cmd.sh ls```. 
